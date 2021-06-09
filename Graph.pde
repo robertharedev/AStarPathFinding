@@ -87,20 +87,20 @@ public class Graph {
 
   public void displayGrid() {
     // draw grid
-    stroke(0);
+    stroke(49,80,90);
     for (int i = 0; i < cols; i++) {
       for (int j = 0; j < cols; j++) {
         int node = (i * cols) + j;
         if (node == startingNode) {
-          fill(0, 255, 0);
+          fill(216,140,108);
         } else if (node == destination) {
-          fill(0, 150, 0);
+          fill(186,110,78);
         } else if (isInPath(node)) {
-          fill(0, 100, 100);
+          fill(89,150,143);
         } else if (isVisited(node)) {
-          fill(100, 100, 100);
+          fill(154,201,175);
         } else
-          fill(255);
+          fill(245,243,204);
           
         rect(cellW * j, cellW * i, cellW, cellW);
       }
