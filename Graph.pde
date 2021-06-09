@@ -102,7 +102,7 @@ public class Graph {
         } else
           fill(255);
           
-        rect(cellW * j, cellW * i, cellW, cellW); dsa
+        rect(cellW * j, cellW * i, cellW, cellW);
       }
     }
   }
