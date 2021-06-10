@@ -10,7 +10,7 @@ public class Graph {
   private int[] fromList;
   private int[] pathList;
   
-  private int cellW = 20;
+  private int cellW = 500 / cols;
   private int pathNodeCount = 0;
 
   Graph(int cols) {
@@ -35,7 +35,6 @@ public class Graph {
     // for each node in graph
     for (int i = 0; i < cols; i++) {
       for (int j = 0; j < cols; j++) {
-
         // link nodes with their neighbours:
         if (currentNode < this.numOfNodes - 1) {     // if not in bottom right
           if ((currentNode + 1) % cols == 0) {       // if currentNode is on right side of the grid
@@ -164,6 +163,16 @@ public class Graph {
     return newCurrent;
   }
   
+  // get distance from node to destination
+  private float getPotentialCost(int node, int dest) {
+    // calculate node's grid coordinates from node number and same with destination
+    int x1 = node / cols;
+    int y1 = node % cols;
+    int x2 = dest / cols;
+    int y2 = dest % cols;
+    
+    return sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
+  }
   
   
 
@@ -179,9 +188,9 @@ public class Graph {
       for (int i = 0; i < adM[0].length; i++) {
         if (!visited[i]
             && isAdjacent(currentNode, i)
-            && tentative[i] > (tentative[currentNode] + getWeight(currentNode, i)))
+            && tentative[i] > (tentative[currentNode] + getWeight(currentNode, i)) + getPotentialCost(currentNode, destination))
             {
-              tentative[i] = tentative[currentNode] + getWeight(currentNode, i);
+              tentative[i] = tentative[currentNode] + getWeight(currentNode, i) + getPotentialCost(currentNode, destination);
               fromList[i] = currentNode;
             }
       }

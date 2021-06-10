@@ -1,5 +1,5 @@
 Graph graph;
-int cols = 25;
+int cols = 20; // Edit this to change the number of columns
 
 void setup() {
   size(500, 500);
@@ -11,7 +11,7 @@ void setup() {
 
 void draw() {
   graph.displayGrid();
-  //graph.displayLinks();
+  //graph.displayLinks(); // uncomment this to see a visualisation of the graph
 }
 
 void mousePressed() {
