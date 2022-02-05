@@ -9,3 +9,5 @@
 5. Stop program execution and try again! 😃
 
 ###### 👉 [robertharedev](https://github.com/robertharedev) 🇬🇧
+
+Licensed under the [MIT License.](LICENSE)
